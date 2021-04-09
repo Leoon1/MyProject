@@ -1,13 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using MyProject.DAL.Context;
 
-namespace MyProject.Controllers
+namespace MyProject.ServiceHosting.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeesController : ControllerBase
     {
+        //private readonly MyProjectDB _myProjectDb;
+        //public EmployeesController(MyProjectDB myProjectDb)
+        //{
+        //    _myProjectDb = myProjectDb;
+        //}
+
         private static readonly List<string> __Values = Enumerable
             .Range(1, 10)
             .Select(i => $"Value{i:00}")
