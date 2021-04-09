@@ -27,18 +27,25 @@ namespace MyProject.ServiceHosting.Data
             if (db.GetPendingMigrations().Any())
                 db.Migrate();
 
+            InitializeEmployees();
+        }
+
+        private void InitializeEmployees()
+        {
+            if(_db.Employees.Any())
+                return;
+
             using (_db.Database.BeginTransaction())
             {
                 _db.Employees.AddRange(
-                    new Employee {FirstName = "Леонид", LastName = "Петров", Age = 25, Email = "1@bk.ru"},
-                    new Employee{FirstName = "Аркадий", LastName = "Укупник", Age = 70, Email = "2@ap.ua"},
-                    new Employee{FirstName = "Конан", LastName = "Доил", Age = 90, Email = "99@gmail.com"}
+                    new Employee { FirstName = "Леонид", LastName = "Петров", Age = 25, Email = "1@bk.ru" },
+                    new Employee { FirstName = "Аркадий", LastName = "Укупник", Age = 70, Email = "2@ap.ua" },
+                    new Employee { FirstName = "Конан", LastName = "Доил", Age = 90, Email = "99@gmail.com" }
                     );
-                
+
                 _db.SaveChanges();
                 _db.Database.CommitTransaction();
             }
-
         }
     }
 }

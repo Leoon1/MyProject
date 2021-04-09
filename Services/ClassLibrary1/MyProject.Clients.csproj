@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\MyProject.Domain\MyProject.Domain.csproj" />
     <ProjectReference Include="..\MyProject.Interfaces\MyProject.Interfaces.csproj" />
   </ItemGroup>
 

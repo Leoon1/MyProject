@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using MyProject.DAL.Context;
+using MyProject.Domain.Models;
 
 namespace MyProject.ServiceHosting.Controllers
 {
@@ -9,11 +10,11 @@ namespace MyProject.ServiceHosting.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        //private readonly MyProjectDB _myProjectDb;
-        //public EmployeesController(MyProjectDB myProjectDb)
-        //{
-        //    _myProjectDb = myProjectDb;
-        //}
+        private readonly MyProjectDB _myProjectDb;
+        public EmployeesController(MyProjectDB myProjectDb)
+        {
+            _myProjectDb = myProjectDb;
+        }
 
         private static readonly List<string> __Values = Enumerable
             .Range(1, 10)
@@ -22,9 +23,9 @@ namespace MyProject.ServiceHosting.Controllers
 
         // GET: api/<EmployeeController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Employee> Get()
         {
-            return __Values;
+            return _myProjectDb.Employees.ToList();
         }
 
         // GET api/<EmployeeController>/5

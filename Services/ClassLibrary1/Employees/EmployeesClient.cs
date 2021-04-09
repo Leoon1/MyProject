@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using MyProject.Clients.Base;
+using MyProject.Domain.Models;
 using MyProject.Interfaces.API;
 
 namespace MyProject.Clients.Employees
@@ -16,12 +17,12 @@ namespace MyProject.Clients.Employees
     {
         public EmployeesClient(IConfiguration configuration): base(configuration, "api/employees") { }
 
-        public IEnumerable<string> Get()
+        public IEnumerable<Employee> Get()
         {
             var response = Http.GetAsync(Address).Result;
             if (response.IsSuccessStatusCode)
-                return response.Content.ReadAsAsync<IEnumerable<string>>().Result;
-            return Enumerable.Empty<string>();
+                return response.Content.ReadAsAsync<IEnumerable<Employee>>().Result;
+            return Enumerable.Empty<Employee>();
         }
 
         public string Get(int id)

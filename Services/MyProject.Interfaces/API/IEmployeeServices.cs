@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using MyProject.Domain.Models;
 
 namespace MyProject.Interfaces.API
 {
@@ -10,7 +11,7 @@ namespace MyProject.Interfaces.API
         /// Возвращает перечисление строк
         /// </summary>
         /// <returns></returns>
-        IEnumerable<string> Get();
+        IEnumerable<Employee> Get();
 
         /// <summary>
         /// Возвращает одну строку

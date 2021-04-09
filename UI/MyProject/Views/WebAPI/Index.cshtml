@@ -1,4 +1,4 @@
-﻿@model IEnumerable<string>
+﻿@model IEnumerable<MyProject.Domain.Models.Employee>
 @{
     ViewData["Title"] = "Employee WebApi";
 }
@@ -7,20 +7,28 @@
     <h3>@ViewData["Title"]</h3>
     <hr />
     
-    <table>
+    <table class="table">
         <thead>
         <tr>
-            <th>#</th>
-            <th>value</th>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Patronymic</th>
+            <th>Age</th>
+            <th>Email</th>
         </tr>
         </thead>
         <tbody>
-        @{ var i = 1;}
+        
         @foreach (var value in Model)
         {
             <tr>
-                <th>@(i++)</th>
-                <td>@value</td>
+                <th>@(value.Age) </th>
+                <th>@(value.FirstName )</th>
+                <th>@(value.LastName )</th>
+                <th>@(value.Patronymic )</th>
+                <th>@(value.Age )</th>
+                <th>@(value.Email)</th>
             </tr>
         }
         </tbody>
