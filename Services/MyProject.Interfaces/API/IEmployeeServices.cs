@@ -18,7 +18,7 @@ namespace MyProject.Interfaces.API
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        string Get(int id);
+        Employee Get(int id);
 
         /// <summary>
         /// Создавать новую строку и возващать ссылку на эту созданную строку
