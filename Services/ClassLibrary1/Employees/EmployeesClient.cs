@@ -25,12 +25,12 @@ namespace MyProject.Clients.Employees
             return Enumerable.Empty<Employee>();
         }
 
-        public string Get(int id)
+        public Employee Get(int id)
         {
             var response = Http.GetAsync($"{Address}/{id}").Result;
             if (response.IsSuccessStatusCode)
-                return response.Content.ReadAsAsync<string>().Result;
-            return String.Empty;
+                return response.Content.ReadAsAsync<Employee>().Result;
+            return new Employee();
         }
 
         public Uri Post(string value)

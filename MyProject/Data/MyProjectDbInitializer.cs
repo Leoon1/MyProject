@@ -38,9 +38,9 @@ namespace MyProject.ServiceHosting.Data
             using (_db.Database.BeginTransaction())
             {
                 _db.Employees.AddRange(
-                    new Employee { FirstName = "Леонид", LastName = "Петров", Age = 25, Email = "1@bk.ru" },
-                    new Employee { FirstName = "Аркадий", LastName = "Укупник", Age = 70, Email = "2@ap.ua" },
-                    new Employee { FirstName = "Конан", LastName = "Доил", Age = 90, Email = "99@gmail.com" }
+                    new Employee { FirstName = "Леонид", LastName = "Петров", Patronymic = "Михайлович", Age = 25, Email = "1@bk.ru" },
+                    new Employee { FirstName = "Аркадий", LastName = "Укупник", Patronymic = "Артемович", Age = 70, Email = "2@ap.ua" },
+                    new Employee { FirstName = "Конан", LastName = "Доил", Patronymic = "Иванович", Age = 90, Email = "99@gmail.com" }
                     );
 
                 _db.SaveChanges();

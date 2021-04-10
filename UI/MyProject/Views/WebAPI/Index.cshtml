@@ -29,6 +29,27 @@
                 <th>@(value.Patronymic )</th>
                 <th>@(value.Age )</th>
                 <th>@(value.Email)</th>
+                <td>
+                    <form>
+                        <button type="submit" class="btn btn-info btn-sm">
+                            <i class="fa fa-times">Редактировать</i>
+                        </button>
+                    </form>
+                </td>
+                <td>
+                    <form>
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            <i class="fa fa-times">Удалить</i>
+                        </button>
+                    </form>
+                </td>
+                @*<td>
+            <form asp-action="DeleteConfirmed" asp-route-id="@employee.Id">
+                <button type="submit" class="btn btn-danger btn-sm">
+                    <i class="fa fa-times"></i>
+                </button>
+            </form>
+        </td>*@
             </tr>
         }
         </tbody>
