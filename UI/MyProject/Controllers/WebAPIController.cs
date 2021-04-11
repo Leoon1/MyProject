@@ -3,15 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MyProject.Interfaces.API;
+using MyProject.Interfaces.Services;
+
 
 namespace MyProject.Controllers
 {
     public class WebAPIController : Controller
     {
-        private readonly IEmployeeServices _employeeServices;
+        private readonly IEmployeesData _employeeServices;
 
-        public WebAPIController(IEmployeeServices employeeServices) => _employeeServices = employeeServices;
+        public WebAPIController(IEmployeesData employeeServices) => _employeeServices = employeeServices;
 
         public IActionResult Index()
         {

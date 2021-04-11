@@ -18,7 +18,7 @@
     "MyProject": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "WebAPI/Index",
+      "launchUrl": "Employees/Index",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

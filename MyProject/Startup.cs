@@ -6,9 +6,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using MyProject.DAL.Context;
+using MyProject.Interfaces.Services;
 using MyProject.ServiceHosting.Data;
+using MyProject.Servises.Data;
+using MyProject.Servises.Employees;
 
-namespace MyProject
+namespace MyProject.ServiceHosting
 {
     public class Startup
     {
@@ -24,6 +27,7 @@ namespace MyProject
             string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContextPool<MyProjectDB>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
             services.AddTransient<MyProjectDbInitializer>();
+            services.AddScoped<IEmployeesData, MySqlEmployeesData>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

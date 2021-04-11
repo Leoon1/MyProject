@@ -6,12 +6,12 @@ using MyProject.Domain.Models;
 
 namespace MyProject.ServiceHosting.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/employees")]
     [ApiController]
-    public class EmployeesController : ControllerBase
+    public class EmployeesApiController : ControllerBase
     {
         private readonly MyProjectDB _myProjectDb;
-        public EmployeesController(MyProjectDB myProjectDb)
+        public EmployeesApiController(MyProjectDB myProjectDb)
         {
             _myProjectDb = myProjectDb;
         }

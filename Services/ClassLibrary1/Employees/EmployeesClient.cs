@@ -9,47 +9,33 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using MyProject.Clients.Base;
 using MyProject.Domain.Models;
-using MyProject.Interfaces.API;
+using MyProject.Interfaces.Services;
+using Microsoft.Extensions.Logging;
 
 namespace MyProject.Clients.Employees
 {
-    public class EmployeesClient : BaseClient, IEmployeeServices
+    public class EmployeesClient : BaseClient, IEmployeesData
     {
-        public EmployeesClient(IConfiguration configuration): base(configuration, "api/employees") { }
+        private readonly ILogger<EmployeesClient> _Logger;
 
-        public IEnumerable<Employee> Get()
+        public EmployeesClient(IConfiguration Configuration, ILogger<EmployeesClient> Logger)
+            : base(Configuration, "api/employees") =>
+            _Logger = Logger;
+
+
+        public IEnumerable<Employee> Get() => Get<IEnumerable<Employee>>(Address);
+
+        public Employee Get(int id) => Get<Employee>($"{Address}/{id}");
+
+        public int Add(Employee employee) => Post(Address, employee).Content.ReadAsAsync<int>().Result;
+
+        public void Update(Employee employee)
         {
-            var response = Http.GetAsync(Address).Result;
-            if (response.IsSuccessStatusCode)
-                return response.Content.ReadAsAsync<IEnumerable<Employee>>().Result;
-            return Enumerable.Empty<Employee>();
+            _Logger.LogInformation("Редактирование сотрудника с id:{0}", employee.Id);
+            Put(Address, employee);
         }
 
-        public Employee Get(int id)
-        {
-            var response = Http.GetAsync($"{Address}/{id}").Result;
-            if (response.IsSuccessStatusCode)
-                return response.Content.ReadAsAsync<Employee>().Result;
-            return new Employee();
-        }
-
-        public Uri Post(string value)
-        {
-            var response = Http.PostAsJsonAsync(Address, value).Result;
-            return response.EnsureSuccessStatusCode().Headers.Location;
-        }
-
-        public HttpStatusCode Update(int id, string value)
-        {
-            var response = Http.PostAsJsonAsync($"{Address}/{id}", value).Result;
-            return response.EnsureSuccessStatusCode().StatusCode;
-        }
-
-        public HttpStatusCode Delete(int id)
-        {
-            var response = Http.DeleteAsync($"{Address}/{id}").Result;
-            return response.StatusCode;
-        }
-
+        public bool Delete(int id) => Delete($"{Address}/{id}").IsSuccessStatusCode;
+        
     }
 }

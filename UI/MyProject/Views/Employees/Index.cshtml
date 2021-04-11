@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MyProject.Domain.Models.Employee>
+    @{
+    ViewData["Title"] = "Employee WebApi";
+    }
+
+    <div>
+        <h3>@ViewData["Title"]</h3>
+        <hr />
+
+        <div>
+            <a asp-action="Create" class="btn btn-primary">Создать</a>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Patronymic</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var employee in Model)
+                {
+                <tr>
+                    <th>@(employee.Age) </th>
+                    <th>@(employee.FirstName )</th>
+                    <th>@(employee.LastName )</th>
+                    <th>@(employee.Patronymic )</th>
+                    <th>@(employee.Age )</th>
+                    <th>@(employee.Email)</th>
+                    <td>
+                        <form>
+                            <button type="submit" class="btn btn-info btn-sm">
+                                <i class="fa fa-times">Редактировать</i>
+                            </button>
+                        </form>
+                    </td>
+                  
+                    <td>
+                        <form asp-action="DeleteConfirmed" asp-route-id="@employee.Id">
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <i class="fa fa-times">Удалить</i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+

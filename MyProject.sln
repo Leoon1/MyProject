@@ -3,23 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProject.ServiceHosting", "MyProject\MyProject.ServiceHosting.csproj", "{531B64E3-9F04-4229-A033-7CA7E16550CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyProject.ServiceHosting", "MyProject\MyProject.ServiceHosting.csproj", "{531B64E3-9F04-4229-A033-7CA7E16550CF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serveces", "Serveces", "{7531B9EF-5CAC-4AC1-A76A-E9A099655CFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProject.Clients", "Services\ClassLibrary1\MyProject.Clients.csproj", "{E0DCA11E-FCD6-4DD3-88CF-C222A965569B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyProject.Clients", "Services\ClassLibrary1\MyProject.Clients.csproj", "{E0DCA11E-FCD6-4DD3-88CF-C222A965569B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProject.Interfaces", "Services\MyProject.Interfaces\MyProject.Interfaces.csproj", "{42B00710-3650-47BC-9B46-330741FD61C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyProject.Interfaces", "Services\MyProject.Interfaces\MyProject.Interfaces.csproj", "{42B00710-3650-47BC-9B46-330741FD61C5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{A8FBD44D-3364-474E-AA8F-698C71A68661}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProject", "UI\MyProject\MyProject.csproj", "{0D4ECC6A-68BE-47A9-B76D-55388B5593B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyProject", "UI\MyProject\MyProject.csproj", "{0D4ECC6A-68BE-47A9-B76D-55388B5593B6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{D8EF6517-E175-4099-A5DE-A5FDA1C82E1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProject.Domain", "Common\MyProject.Domain\MyProject.Domain.csproj", "{FA7FBE65-9CC4-4F99-B1DC-BD0A248CFD25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyProject.Domain", "Common\MyProject.Domain\MyProject.Domain.csproj", "{FA7FBE65-9CC4-4F99-B1DC-BD0A248CFD25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProject.DAL", "Services\MyProject.DAL\MyProject.DAL.csproj", "{E62E1597-014F-4B4B-9DD9-A6870F53C0A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyProject.DAL", "Services\MyProject.DAL\MyProject.DAL.csproj", "{E62E1597-014F-4B4B-9DD9-A6870F53C0A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProject.Servises", "Services\MyProject.Servises\MyProject.Servises.csproj", "{58B65708-BB14-423D-87D8-C89BAB9F7983}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{E62E1597-014F-4B4B-9DD9-A6870F53C0A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E62E1597-014F-4B4B-9DD9-A6870F53C0A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E62E1597-014F-4B4B-9DD9-A6870F53C0A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58B65708-BB14-423D-87D8-C89BAB9F7983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B65708-BB14-423D-87D8-C89BAB9F7983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B65708-BB14-423D-87D8-C89BAB9F7983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B65708-BB14-423D-87D8-C89BAB9F7983}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{0D4ECC6A-68BE-47A9-B76D-55388B5593B6} = {A8FBD44D-3364-474E-AA8F-698C71A68661}
 		{FA7FBE65-9CC4-4F99-B1DC-BD0A248CFD25} = {D8EF6517-E175-4099-A5DE-A5FDA1C82E1C}
 		{E62E1597-014F-4B4B-9DD9-A6870F53C0A7} = {7531B9EF-5CAC-4AC1-A76A-E9A099655CFF}
+		{58B65708-BB14-423D-87D8-C89BAB9F7983} = {7531B9EF-5CAC-4AC1-A76A-E9A099655CFF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B1E229FC-934F-406F-B04B-445A028C8BCD}

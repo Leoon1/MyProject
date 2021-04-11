@@ -1,19 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="API\IEmployeeServices.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Common\MyProject.Domain\MyProject.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="API\" />
+    <ProjectReference Include="..\MyProject.DAL\MyProject.DAL.csproj" />
+    <ProjectReference Include="..\MyProject.Interfaces\MyProject.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

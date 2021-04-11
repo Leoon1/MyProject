@@ -8,7 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MyProject.Clients.Employees;
-using MyProject.Interfaces.API;
+using MyProject.Interfaces.Services;
+
 
 namespace MyProject
 {
@@ -25,7 +26,7 @@ namespace MyProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<IEmployeeServices, EmployeesClient>();
+            services.AddScoped<IEmployeesData, EmployeesClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

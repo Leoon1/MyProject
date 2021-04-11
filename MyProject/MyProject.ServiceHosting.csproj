@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\EmployeeController.cs" />
     <Compile Remove="MyProjectDBContextFactory.cs" />
   </ItemGroup>
 
@@ -19,6 +20,11 @@
   <ItemGroup>
     <ProjectReference Include="..\Services\ClassLibrary1\MyProject.Clients.csproj" />
     <ProjectReference Include="..\Services\MyProject.DAL\MyProject.DAL.csproj" />
+    <ProjectReference Include="..\Services\MyProject.Servises\MyProject.Servises.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
 
 

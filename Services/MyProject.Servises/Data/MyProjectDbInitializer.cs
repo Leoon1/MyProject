@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MyProject.DAL.Context;
 using MyProject.Domain.Models;
 
-namespace MyProject.ServiceHosting.Data
+namespace MyProject.Servises.Data
 {
     public class MyProjectDbInitializer
     {
@@ -37,11 +34,7 @@ namespace MyProject.ServiceHosting.Data
 
             using (_db.Database.BeginTransaction())
             {
-                _db.Employees.AddRange(
-                    new Employee { FirstName = "Леонид", LastName = "Петров", Patronymic = "Михайлович", Age = 25, Email = "1@bk.ru" },
-                    new Employee { FirstName = "Аркадий", LastName = "Укупник", Patronymic = "Артемович", Age = 70, Email = "2@ap.ua" },
-                    new Employee { FirstName = "Конан", LastName = "Доил", Patronymic = "Иванович", Age = 90, Email = "99@gmail.com" }
-                    );
+                _db.Employees.AddRange(TestData.Employees);
 
                 _db.SaveChanges();
                 _db.Database.CommitTransaction();
