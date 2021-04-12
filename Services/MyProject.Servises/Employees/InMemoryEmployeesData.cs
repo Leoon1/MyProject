@@ -4,22 +4,18 @@ using System.Linq;
 using MyProject.DAL.Context;
 using MyProject.Domain.Models;
 using MyProject.Interfaces.Services;
+using MyProject.Servises.Data;
 
 namespace MyProject.ServiceHosting.Data
 {
-    
+    /// <summary>
+    /// Данные в памяти
+    /// </summary>
     public class InMemoryEmployeesData : IEmployeesData
     {
-        private readonly MyProjectDB _myProjectDb;
+        private readonly List<Employee> _Employees = TestData.Employees;
 
-        public InMemoryEmployeesData(MyProjectDB myProjectDb)
-        {
-            _myProjectDb = myProjectDb;
-        }
-
-        private readonly List<Employee> _Employees = null;
-
-        public IEnumerable<Employee> Get() => _myProjectDb.Employees.ToList();
+        public IEnumerable<Employee> Get() => _Employees;
 
         public Employee Get(int id) => _Employees.FirstOrDefault(item => item.Id == id);
 

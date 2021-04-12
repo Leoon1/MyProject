@@ -10,7 +10,7 @@ namespace MyProject.Controllers
     {
         private readonly IEmployeesData _employeeServices;
 
-        public EmployeesController(IEmployeesData Employees) => _employeeServices = Employees;
+        public EmployeesController(IEmployeesData employees) => _employeeServices = employees;
 
         public IActionResult Index()
         {
@@ -50,22 +50,24 @@ namespace MyProject.Controllers
                 FirstName = employee.FirstName,
                 Patronymic = employee.Patronymic,
                 Age = employee.Age,
+                Email = employee.Email,
             });
         }
 
         [HttpPost]
-        public IActionResult Edit(EmployeesViewModel Model)
+        public IActionResult Edit(EmployeesViewModel model)
         {
-            if (Model is null)
-                throw new ArgumentNullException(nameof(Model));
+            if (model is null)
+                throw new ArgumentNullException(nameof(model));
 
             var employee = new Employee
             {
-                Id = Model.Id,
-                LastName = Model.LastName,
-                FirstName = Model.FirstName,
-                Patronymic = Model.Patronymic,
-                Age = Model.Age,
+                Id = model.Id,
+                LastName = model.LastName,
+                FirstName = model.FirstName,
+                Patronymic = model.Patronymic,
+                Age = model.Age,
+                Email = model.Email,
             };
 
             if (employee.Id == 0)
@@ -96,6 +98,7 @@ namespace MyProject.Controllers
                 FirstName = employee.FirstName,
                 Patronymic = employee.Patronymic,
                 Age = employee.Age,
+                Email = employee.Email,
             });
         }
 

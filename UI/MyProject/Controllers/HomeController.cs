@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace MyProject.Controllers
 {
+    // базовый контроллер для Веб страницы, здесь он не нужен, просто для теста
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

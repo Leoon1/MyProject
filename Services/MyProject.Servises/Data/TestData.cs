@@ -7,6 +7,9 @@ using MyProject.Domain.Models;
 
 namespace MyProject.Servises.Data
 {
+    /// <summary>
+    /// Тестовые данные по клиентам
+    /// </summary>
     public class TestData
     {
         public static List<Employee> Employees { get; } = new List<Employee>()

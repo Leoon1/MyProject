@@ -6,7 +6,6 @@ using MyProject.Interfaces.Services;
 
 namespace MyProject.ServiceHosting.Controllers
 {
-    //[Route("api/[controller]")] // [controller] = EmployeesApi
     [Route("api/employees")]
     [ApiController]
     public class EmployeesApiController : ControllerBase, IEmployeesData
