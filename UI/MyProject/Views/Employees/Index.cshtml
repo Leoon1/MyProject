@@ -34,13 +34,18 @@
                     <th>@(employee.Age )</th>
                     <th>@(employee.Email)</th>
                     <td>
-                        <form>
+                        <a asp-action="Edit" asp-route-id="@employee.Id">
+                            <i class="fa fa-times">Редактировать</i>
+                        </a>
+                    </td>
+                    @*<td>
+                        <form asp-action="Edit" asp-route-id="@employee.Id">
                             <button type="submit" class="btn btn-info btn-sm">
                                 <i class="fa fa-times">Редактировать</i>
                             </button>
                         </form>
-                    </td>
-                  
+                    </td>*@
+
                     <td>
                         <form asp-action="DeleteConfirmed" asp-route-id="@employee.Id">
                             <button type="submit" class="btn btn-danger btn-sm">

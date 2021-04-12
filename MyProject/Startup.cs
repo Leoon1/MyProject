@@ -7,7 +7,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using MyProject.DAL.Context;
 using MyProject.Interfaces.Services;
-using MyProject.ServiceHosting.Data;
 using MyProject.Servises.Data;
 using MyProject.Servises.Employees;
 
@@ -27,14 +26,13 @@ namespace MyProject.ServiceHosting
             string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContextPool<MyProjectDB>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
             services.AddTransient<MyProjectDbInitializer>();
-            services.AddScoped<IEmployeesData, MySqlEmployeesData>();
+            services.AddTransient<IEmployeesData, MySqlEmployeesData>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyProject", Version = "v1" });
             });
-            //services.AddDbContext<MyProjectDB>();
 
         }
 

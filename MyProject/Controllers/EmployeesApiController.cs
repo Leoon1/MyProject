@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyProject.Domain.Models;
+using MyProject.Interfaces;
 using MyProject.Interfaces.Services;
 
 namespace MyProject.ServiceHosting.Controllers
 {
-    [Route("api/employees")]
+    [Route(WebAPI.Employees)]
     [ApiController]
     public class EmployeesApiController : ControllerBase, IEmployeesData
     {

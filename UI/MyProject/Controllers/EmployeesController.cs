@@ -27,7 +27,19 @@ namespace MyProject.Controllers
         //    return NotFound();
         //}
 
-        public IActionResult Create() => View("Edit");
+        public IActionResult Create()
+        {
+            return View("Edit", new EmployeesViewModel()
+#if DEBUG
+                {
+                    FirstName = "Артур", 
+                    LastName = "Гайнудинов", 
+                    Patronymic = "Артурович", 
+                    Age = 45, Email = "eb@eb.eb"
+                }
+#endif
+                );
+        }
 
         #region Edit
 
@@ -57,6 +69,14 @@ namespace MyProject.Controllers
         [HttpPost]
         public IActionResult Edit(EmployeesViewModel model)
         {
+            if (model.Age == 25)
+                ModelState.AddModelError("Age", "Возраст не должен быть равен 25");
+
+            if (model.LastName == "Иванов" && model.Age == 30)
+                ModelState.AddModelError("", "Странный человек...");
+
+            if (!ModelState.IsValid) return View(model);
+
             if (model is null)
                 throw new ArgumentNullException(nameof(model));
 

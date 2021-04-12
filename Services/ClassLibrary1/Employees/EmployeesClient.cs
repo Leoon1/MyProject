@@ -11,6 +11,7 @@ using MyProject.Clients.Base;
 using MyProject.Domain.Models;
 using MyProject.Interfaces.Services;
 using Microsoft.Extensions.Logging;
+using MyProject.Interfaces;
 
 namespace MyProject.Clients.Employees
 {
@@ -19,7 +20,7 @@ namespace MyProject.Clients.Employees
         private readonly ILogger<EmployeesClient> _Logger;
 
         public EmployeesClient(IConfiguration Configuration, ILogger<EmployeesClient> Logger)
-            : base(Configuration, "api/employees") =>
+            : base(Configuration, WebAPI.Employees) =>
             _Logger = Logger;
 
 
