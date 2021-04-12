@@ -27,7 +27,19 @@ namespace MyProject.Controllers
         //    return NotFound();
         //}
 
-        public IActionResult Create() => View("Edit");
+        public IActionResult Create()
+        {
+            return View("Edit", new EmployeesViewModel()
+#if DEBUG
+                {
+                    FirstName = "Артур", 
+                    LastName = "Гайнудинов", 
+                    Patronymic = "Артурович", 
+                    Age = 45, Email = "eb@eb.eb"
+                }
+#endif
+                );
+        }
 
         #region Edit
 

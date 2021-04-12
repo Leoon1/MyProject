@@ -38,7 +38,10 @@ namespace MyProject.Servises.Employees
         /// <returns></returns>
         public Employee Get(int id)
         {
-            throw new NotImplementedException();
+            if (id < 0)
+                throw new IndexOutOfRangeException();
+            var employee = _myProjectDb.Employees.FirstOrDefault(e => e.Id == id);
+            return employee;
         }
 
         /// <summary>
@@ -50,7 +53,7 @@ namespace MyProject.Servises.Employees
         {
             _myProjectDb.Add(employee);
             var number = _myProjectDb.SaveChanges();
-            
+
             return number;
         }
 
@@ -58,9 +61,26 @@ namespace MyProject.Servises.Employees
         /// Обновление сотрудника
         /// </summary>
         /// <param name="employee"></param>
-        public void Update(Employee employee)
+        public void Update(Employee newEmployee)
         {
-            throw new NotImplementedException();
+            var oldEmployee = _myProjectDb.Employees.FirstOrDefault(e => e.Id == newEmployee.Id);
+
+            if (oldEmployee.FirstName != newEmployee.FirstName)
+                oldEmployee.FirstName = newEmployee.FirstName;
+
+            if (oldEmployee.LastName != newEmployee.LastName)
+                oldEmployee.LastName = newEmployee.LastName;
+
+            if (oldEmployee.Patronymic != newEmployee.Patronymic)
+                oldEmployee.Patronymic = newEmployee.Patronymic;
+
+            if (oldEmployee.Age != newEmployee.Age)
+                oldEmployee.Age = newEmployee.Age;
+
+            if (oldEmployee.Email != newEmployee.Email)
+                oldEmployee.Email = newEmployee.Email;
+
+            _myProjectDb.SaveChanges();
         }
 
         /// <summary>
