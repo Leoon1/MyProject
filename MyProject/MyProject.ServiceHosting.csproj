@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Common\MyProject.Domain\MyProject.Domain.csproj" />
     <ProjectReference Include="..\Services\ClassLibrary1\MyProject.Clients.csproj" />
     <ProjectReference Include="..\Services\MyProject.DAL\MyProject.DAL.csproj" />
     <ProjectReference Include="..\Services\MyProject.Servises\MyProject.Servises.csproj" />

@@ -69,7 +69,6 @@ namespace MyProject.Controllers
         [HttpPost]
         public IActionResult Edit(EmployeesViewModel model)
         {
-
             if (model.LastName == "Иванов" && model.Age == 30)
                 ModelState.AddModelError("", "Странный человек...");
 
