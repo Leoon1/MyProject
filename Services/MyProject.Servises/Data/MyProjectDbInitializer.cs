@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MyProject.DAL.Context;
 using MyProject.Domain.Entities.Identity;
-using MyProject.Domain.Models;
 
 namespace MyProject.Servises.Data
 {

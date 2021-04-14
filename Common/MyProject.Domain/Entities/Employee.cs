@@ -1,7 +1,8 @@
-﻿namespace MyProject.Domain.Models
+﻿namespace MyProject.Domain.Entities
 {
-    public class Employee
+    public class Employee 
     {
+        /// <summary>Идентификатор</summary>
         public int Id { get; set; }
 
         /// <summary>Имя</summary>

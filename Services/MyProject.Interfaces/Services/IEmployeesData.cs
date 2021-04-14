@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using MyProject.Domain.Models;
+using MyProject.Domain.Entities;
 
 namespace MyProject.Interfaces.Services
 {

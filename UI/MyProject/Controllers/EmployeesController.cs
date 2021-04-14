@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MyProject.Domain.Models;
+using MyProject.Domain.Entities;
 using MyProject.Domain.ViewModels;
 using MyProject.Interfaces.Services;
 

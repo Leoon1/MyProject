@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MyProject.Domain.Entities;
 using MyProject.Domain.Entities.Identity;
-using MyProject.Domain.Models;
 
 namespace MyProject.DAL.Context
 {

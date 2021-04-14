@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -55,9 +56,20 @@ namespace MyProject.ServiceHosting
             services.AddTransient<IEmployeesData, MySqlEmployeesData>();
 
             services.AddControllers();
+
+            const string webstore_api_xml = "MyProject.ServiceHosting.xml";
+            const string webstore_domain_xml = "MyProject.Domain.xml";
+            const string debug_path = "bin/Debug/net5.0";
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyProject", Version = "v1" });
+                c.IncludeXmlComments(webstore_api_xml);
+
+                if (File.Exists(webstore_domain_xml))
+                    c.IncludeXmlComments(webstore_domain_xml);
+                else if (File.Exists(Path.Combine(debug_path, webstore_domain_xml)))
+                    c.IncludeXmlComments(Path.Combine(debug_path, webstore_domain_xml));
             });
 
         }

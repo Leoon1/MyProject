@@ -362,3 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /UI/MyProject/wwwroot/lib
+/MyProject/MyProject.ServiceHosting.xml
+/Common/MyProject.Domain/MyProject.Domain.xml

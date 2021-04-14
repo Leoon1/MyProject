@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MyProject.DAL.Context;
-using MyProject.Domain.Models;
+using MyProject.Domain.Entities;
 using MyProject.Interfaces.Services;
 using MyProject.Servises.Data;
 

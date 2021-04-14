@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MyProject.DAL.Context;
-using MyProject.Domain.Models;
+using MyProject.Domain.Entities;
 using MyProject.Interfaces.Services;
 
 namespace MyProject.Servises.Employees

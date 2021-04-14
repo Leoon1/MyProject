@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using MyProject.Clients.Base;
-using MyProject.Domain.Models;
 using MyProject.Interfaces.Services;
 using Microsoft.Extensions.Logging;
+using MyProject.Domain.Entities;
 using MyProject.Interfaces;
 
 namespace MyProject.Clients.Employees
