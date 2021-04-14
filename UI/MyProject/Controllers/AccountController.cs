@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using MyProject.Domain.Entities.Identity;
 using MyProject.Domain.ViewModels;
@@ -38,6 +39,8 @@ namespace MyProject.Controllers
             var registrationResult = await this.userManager.CreateAsync(user, model.Password);
             if (registrationResult.Succeeded)
             {
+                await this.userManager.AddToRoleAsync(user, Role.User);
+
                 await this.signInManager.SignInAsync(user, false);
                 return RedirectToAction("Index", "Home");
             }
@@ -50,10 +53,11 @@ namespace MyProject.Controllers
         #endregion
 
         #region Вход в систему
-
+        [AllowAnonymous]
         public IActionResult Login(string returnUrl) => View(new LoginViewModel { ReturnUrl = returnUrl });
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid) return View(model);

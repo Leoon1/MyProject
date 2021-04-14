@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyProject.Domain.Models;
 using MyProject.Domain.ViewModels;
@@ -6,6 +7,7 @@ using MyProject.Interfaces.Services;
 
 namespace MyProject.Controllers
 {
+    [Authorize]
     public class EmployeesController : Controller
     {
         private readonly IEmployeesData _employeeServices;

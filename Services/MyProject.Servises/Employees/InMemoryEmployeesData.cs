@@ -8,6 +8,7 @@ using MyProject.Servises.Data;
 
 namespace MyProject.ServiceHosting.Data
 {
+    [Obsolete("Класс устарел, данные в памяти не размещаются, пользуйтесь MySqlEmployeesData", true)]
     /// <summary>
     /// Данные в памяти
     /// </summary>
