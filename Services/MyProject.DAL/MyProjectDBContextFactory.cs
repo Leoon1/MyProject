@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using MyProject.DAL.Context;
 
-namespace MyProject.ServiceHosting
+namespace MyProject.DAL
 {
 
     public class MyProjectDBContextFactory : IDesignTimeDbContextFactory<MyProjectDB>

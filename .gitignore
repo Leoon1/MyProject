@@ -364,3 +364,5 @@ FodyWeavers.xsd
 /UI/MyProject/wwwroot/lib
 /MyProject/MyProject.ServiceHosting.xml
 /Common/MyProject.Domain/MyProject.Domain.xml
+/UI/MyProject/NLog.config
+/MyProject/NLog.config
