@@ -1,17 +1,23 @@
-﻿@model MyProject.Domain.ViewModels.LoginViewModel
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@model MyProject.Domain.ViewModels.LoginViewModel
+
 @{
     ViewData["Title"] = "Вход в систему";
 }
 
-<section id="form"><!--form-->
+<section id="form">
+    <!--form-->
     <div class="container">
         <div class="row">
             <div class="col-sm-4 col-sm-offset-1">
-                <div class="login-form"><!--login form-->
-                    <h2>Добро пожаловать!</h2>
+                <div class="login-form">
+                    <!--login form-->
+                    <h2>@Localizer["Header"]</h2>
                     <form asp-action="Login" asp-antiforgery="true">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        
+
                         @Html.HiddenFor(e => e.ReturnUrl)
 
                         <input asp-for="UserName" placeholder="Имя пользователя" />
@@ -32,4 +38,3 @@
         </div>
     </div>
 </section><!--/form-->
-

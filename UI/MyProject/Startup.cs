@@ -5,9 +5,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.VisualBasic.CompilerServices;
 using MyProject.Clients.Employees;
 using MyProject.Clients.Indentity;
@@ -28,7 +30,24 @@ namespace MyProject
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.AddControllersWithViews()
+                .AddDataAnnotationsLocalization() // добавляем локализацию аннотаций;
+                .AddViewLocalization();// добавляем локализацию представлений;
+
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new[]
+                {
+                    new CultureInfo("ru"),
+                    new CultureInfo("en")
+                };
+
+                options.DefaultRequestCulture = new RequestCulture("ru");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+
             services.AddTransient<IEmployeesData, EmployeesClient>();
 
             services.AddIdentity<User, Role>()
@@ -77,6 +96,9 @@ namespace MyProject
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseRequestLocalization();
+
             app.UseStaticFiles();
 
             app.UseRouting();

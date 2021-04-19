@@ -10,13 +10,13 @@ namespace MyProject.Controllers
     [Authorize]
     public class EmployeesController : Controller
     {
-        private readonly IEmployeesData _employeeServices;
+        private readonly IEmployeesData EmployeeServices;
 
-        public EmployeesController(IEmployeesData employees) => _employeeServices = employees;
+        public EmployeesController(IEmployeesData employees) => EmployeeServices = employees;
 
         public IActionResult Index()
         {
-            var employees = _employeeServices.Get();
+            var employees = EmployeeServices.Get();
             return View(employees);
         }
 
@@ -53,7 +53,7 @@ namespace MyProject.Controllers
             if (id < 0)
                 return BadRequest();
 
-            var employee = _employeeServices.Get((int)id);
+            var employee = EmployeeServices.Get((int)id);
             if (employee is null)
                 return NotFound();
 
@@ -90,9 +90,9 @@ namespace MyProject.Controllers
             };
 
             if (employee.Id == 0)
-                _employeeServices.Add(employee);
+                EmployeeServices.Add(employee);
             else
-                _employeeServices.Update(employee);
+                EmployeeServices.Update(employee);
 
             return RedirectToAction("Index");
         }
@@ -106,7 +106,7 @@ namespace MyProject.Controllers
             if (id <= 0)
                 return BadRequest();
 
-            var employee = _employeeServices.Get(id);
+            var employee = EmployeeServices.Get(id);
             if (employee is null)
                 return NotFound();
 
@@ -124,7 +124,7 @@ namespace MyProject.Controllers
         [HttpPost]
         public IActionResult DeleteConfirmed(int id)
         {
-            _employeeServices.Delete(id);
+            EmployeeServices.Delete(id);
             return RedirectToAction("Index");
         }
 

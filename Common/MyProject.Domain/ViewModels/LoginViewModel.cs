@@ -7,15 +7,15 @@ namespace MyProject.Domain.ViewModels
     {
         [Required]
         [MaxLength(256)]
-        [Display(Name = "Имя пользователя")]
+        [Display(Name = "UserName")]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Пароль")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "Запомнить меня")]
+        [Display(Name = "Remember")]
         public bool RememberMe { get; set; }
 
         [HiddenInput(DisplayValue = false)]
