@@ -366,3 +366,5 @@ FodyWeavers.xsd
 /Common/MyProject.Domain/MyProject.Domain.xml
 /UI/MyProject/NLog.config
 /MyProject/NLog.config
+/MyProject.Server/wwwroot/lib
+/MyProject.Server/wwwroot/js
