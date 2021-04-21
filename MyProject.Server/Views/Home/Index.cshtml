@@ -1,6 +1,11 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
     ViewData["Title"] = "Home Page";
 }
+
+<h1>@Localizer["Header"]</h1>
+<h3>@Localizer["Message"]</h3>
 
 @if (User.Identity.IsAuthenticated)
 {

@@ -8,20 +8,22 @@ namespace MyProject.Server.ViewModels
 {
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Email является обязательным")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
         [Display(Name = "Имя пользователя")]
+        [Required(ErrorMessage = "Имя является обязательным")]
+        [StringLength(15, ErrorMessage = "Длина поля {0} должна быть от {2} до {1} символов", MinimumLength = 2)]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Пароль является обязательным")]
+        [StringLength(80, ErrorMessage = "Поле {0} должно иметь минимум {2} и максимум {1} символов", MinimumLength = 2)]
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Введите подтверждение пароля")]
         [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         [DataType(DataType.Password)]
         [Display(Name = "Подтвердить пароль")]
