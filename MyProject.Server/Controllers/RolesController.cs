@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyProject.Server.Models;
 using MyProject.Server.ViewModels;
+using NLog;
 
 namespace MyProject.Server.Controllers
 {
-
+    [Authorize(Roles = "admin")]
     public class RolesController : Controller
     {
         readonly RoleManager<IdentityRole> roleManager;

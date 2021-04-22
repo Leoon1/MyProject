@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyProject.Server.Models;
@@ -9,6 +10,7 @@ using MyProject.Server.ViewModels;
 
 namespace MyProject.Server.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         private readonly UserManager<User> userManager;

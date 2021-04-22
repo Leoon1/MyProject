@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyProject.Server.Models;
@@ -94,6 +95,12 @@ namespace MyProject.Server.Controllers
             // удаляем аутентификационные куки
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }
