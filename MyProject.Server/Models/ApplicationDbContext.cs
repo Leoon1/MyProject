@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using System;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -15,17 +17,22 @@ namespace MyProject.Server.Models
         {
             this.configuration = configuration;
 
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
         public static readonly ILoggerFactory MyLoggerFactory
-            = LoggerFactory.Create(builder => { builder.AddNLog(); });
+            = LoggerFactory.Create(builder =>
+            {
+                builder.AddNLog();
+                builder.AddConsole();
+            });
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder
                 .UseLoggerFactory(MyLoggerFactory)
                 .UseMySql(
-                    configuration.GetConnectionString("DefaultConnection"), 
-                    ServerVersion.AutoDetect(configuration.GetConnectionString("DefaultConnection")
-                    ));
+                         configuration.GetConnectionString("DefaultConnection"), 
+                         ServerVersion.AutoDetect(configuration.GetConnectionString("DefaultConnection")
+                         ));
+
     }
 }

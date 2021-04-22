@@ -36,18 +36,18 @@ namespace MyProject.Servises.Data
         /// </summary>
         public void Initialize()
         {
-            this.logger.LogInformation("Инициализация БД...");
+            //this.logger.LogInformation("Инициализация БД...");
 
             var db = this.db.Database;
 
-            if (db.GetPendingMigrations().Any())
-            {
-                this.logger.LogInformation("Есть непримененные миграции...");
+            //if (db.GetPendingMigrations().Any())
+            //{
+                //this.logger.LogInformation("Есть не примененные миграции...");
                 db.Migrate();
-                this.logger.LogInformation("Миграции БД выполнены успешно");
-            }
-            else
-                this.logger.LogInformation("Структура БД в актуальном состоянии.");
+                //this.logger.LogInformation("Миграции БД выполнены успешно");
+            //}
+            //else
+            //    this.logger.LogInformation("Структура БД в актуальном состоянии.");
 
             try
             {
@@ -55,7 +55,7 @@ namespace MyProject.Servises.Data
             }
             catch (Exception e)
             {
-                this.logger.LogInformation("Ошибка при инициализации БД данными таблиц");
+                //this.logger.LogInformation("Ошибка при инициализации БД данными таблиц");
                 throw;
             }
 
@@ -65,7 +65,7 @@ namespace MyProject.Servises.Data
             }
             catch (Exception e)
             {
-                this.logger.LogInformation("Ошибка при инициализации БД системы Indentity");
+                //this.logger.LogInformation("Ошибка при инициализации БД системы Indentity");
                 throw;
             }
 

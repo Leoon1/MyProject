@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using MyProject.Server.Data;
 using MyProject.Server.Models;
 
 namespace MyProject.Server
@@ -28,6 +29,7 @@ namespace MyProject.Server
                 options.UseMySql(
                     conn_str, new MySqlServerVersion(new Version(8, 0, 24)) /*ServerVersion.AutoDetect(Configuration.GetConnectionString(conn_str))*/));
             //services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddTransient<MyProjectDbInitializer>();
 
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -70,13 +72,13 @@ namespace MyProject.Server
             });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, MyProjectDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            dbInitializer.Initialize();
             var supportedCultures = new[]
             {
                 new CultureInfo("en"),
