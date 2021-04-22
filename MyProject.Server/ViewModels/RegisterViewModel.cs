@@ -12,10 +12,10 @@ namespace MyProject.Server.ViewModels
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Display(Name = "Имя пользователя")]
+        [Display(Name = "Логин")]
         [Required(ErrorMessage = "Имя является обязательным")]
         [StringLength(15, ErrorMessage = "Длина поля {0} должна быть от {2} до {1} символов", MinimumLength = 2)]
-        public string FirstName { get; set; }
+        public string UserName { get; set; }
 
         [Required(ErrorMessage = "Пароль является обязательным")]
         [StringLength(80, ErrorMessage = "Поле {0} должно иметь минимум {2} и максимум {1} символов", MinimumLength = 2)]

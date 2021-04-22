@@ -9,8 +9,8 @@ namespace MyProject.Server.ViewModels
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [Display(Name = "Логин пользователя")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

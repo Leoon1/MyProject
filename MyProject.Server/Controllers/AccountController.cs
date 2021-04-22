@@ -32,7 +32,7 @@ namespace MyProject.Server.Controllers
                 User user = new User
                 {
                     Email = model.Email, 
-                    FirstName = model.FirstName
+                    UserName = model.UserName,
                 };
                 // добавляем пользователя
                 var result = await userManager.CreateAsync(user, model.Password);
@@ -66,7 +66,7 @@ namespace MyProject.Server.Controllers
             if (ModelState.IsValid)
             {
                 var result =
-                    await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                    await signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
                     // проверяем, принадлежит ли URL приложению

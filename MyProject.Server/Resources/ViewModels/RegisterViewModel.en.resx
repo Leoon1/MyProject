@@ -150,4 +150,8 @@
   <data name="Поле {0} должно иметь минимум {2} и максимум {1} символов" xml:space="preserve">
     <value>Field {0} must have a minimum of {2} and a maximum of {1} characters</value>
   </data>
+  <data name="Логин" xml:space="preserve">
+    <value>Login</value>
+    <comment>Логин</comment>
+  </data>
 </root>
