@@ -2,10 +2,18 @@
 @{
     ViewBag.Title = "Редактирование пользователя";
 }
-<form asp-action="Edit" asp-controller="Users">
+<form asp-action="Edit" asp-controller="Users" enctype="multipart/form-data">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
         <input type="hidden" asp-for="Id" />
+    </div>
+    <div class="form-group">
+        <h4>Аватар</h4>
+        <div>
+            <p><img src="@Url.Content(Model.PathAvatar)" width="200"></p>
+        </div>
+        <input  type="file" name="uploadedFile" /><br>
+ 
     </div>
     <div class="form-group">
         <label asp-for="FirstName" class="control-label">FirstName</label>
